@@ -3,8 +3,8 @@ def convert2arff(ward):
     fout.write("@relation patients_temperatures\n")
     #fout.write("@attribute ward numeric\n")
     fout.write("@attribute patients_ID numeric\n")
-    fout.write("@attribute time in hours numeric\n")
-    fout.write("@attribute temperature in C° numeric\n\n")
+    fout.write("@attribute time_in_hours numeric\n")
+    fout.write("@attribute temperature_in_C° numeric\n\n")
     fout.write("@data\n")
 
     fin = open(str(ward) + ".txt", "r")

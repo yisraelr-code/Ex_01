@@ -1,7 +1,7 @@
 @relation patients_temperatures
 @attribute patients_ID numeric
-@attribute time in hours numeric
-@attribute temperature in C° numeric
+@attribute time_in_hours numeric
+@attribute temperature_in_C° numeric
 
 @data
 1,1,39.11888888888889
