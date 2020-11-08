@@ -1,7 +1,8 @@
+import statistics
+
 def convert2arff(ward):
     fout = open("ward" + str(ward) + ".arff", "w")
     fout.write("@relation patients_temperatures\n")
-    #fout.write("@attribute ward numeric\n")
     fout.write("@attribute patients_ID numeric\n")
     fout.write("@attribute time_in_hours numeric\n")
     fout.write("@attribute temperature_in_C° numeric\n\n")
@@ -21,7 +22,7 @@ def convert2arff(ward):
             else:
                 temperatures[patient][time] = None
     patient_Id = 0
-    for patient in temperatures: # line after line
+    for patient in temperatures:  # line after line
         for hour in range(24):
             fout.write(str(patient_Id + 1) + "," + str(hour + 1) + "," + str(avgHour(patient, hour)) + "\n")
         patient_Id += 1
@@ -61,6 +62,21 @@ def avgHour(patient, hour):
     return _sum / count
 
 
+def _variance(fileName):
+    with open(fileName) as f:
+        lines = f.read()
+    tempList = lines.split()[12:]  # type: list
+    _list = []
+    for i in range(len(tempList)):
+        _list.append(float(tempList[i].split(',')[2]))
+    return statistics.variance(_list)
+
+
 convert2arff(1)
 convert2arff(2)
 convert2arff(3)
+
+
+print(_variance("ward1.arff"))
+print(_variance("ward2.arff"))
+print(_variance("ward3.arff"))
