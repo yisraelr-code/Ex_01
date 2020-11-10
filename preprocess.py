@@ -1,3 +1,5 @@
+__author__ = "Baruch Baksht 211302088, Yisrael Rolnick 206672057"
+
 import statistics
 
 
